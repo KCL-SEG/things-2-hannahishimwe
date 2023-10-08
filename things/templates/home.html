@@ -7,5 +7,10 @@
     Things
   </h1>
   <p>Some stuff about things goes here.</p>
+  <p>Make a log of your thing here:</p>
+  <form action="{% url 'home' %}" method="post">
+      {{ form }}
+    <input type="submit" value="Log My Thing">
+  </form>
 </body>
 </html>
