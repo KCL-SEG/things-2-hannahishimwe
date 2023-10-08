@@ -1,6 +1,7 @@
 """Forms of the project."""
 from django import forms
 from .models import Thing
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class ThingForm(forms.ModelForm):
     
@@ -8,8 +9,14 @@ class ThingForm(forms.ModelForm):
         model = Thing
         fields = ['name', 'description', 'quantity']
         widgets = {'description': forms.Textarea(), 'quantity': forms.NumberInput()}
+
+        quantity = forms.IntegerField(
+         validators=[MinValueValidator(0),MaxValueValidator(50)]
+     )
     
-    
+    def clean(self):
+        super().clean()
+
 
 
    
