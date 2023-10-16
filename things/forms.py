@@ -12,10 +12,14 @@ class ThingForm(forms.ModelForm):
 
         quantity = forms.IntegerField(
          validators=[MinValueValidator(0),MaxValueValidator(50)]
+         
      )
     
     def clean(self):
         super().clean()
+        quantity = self.changed_data.get('quantity')
+        if quantity > 100 | quantity < 0 :
+            self.add_error('quanitity', 'Add valid input for quanitity')
 
 
 

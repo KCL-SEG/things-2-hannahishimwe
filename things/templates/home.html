@@ -8,7 +8,7 @@
   </h1>
   <p>Some stuff about things goes here.</p>
   <p>Make a log of your thing here:</p>
-  <form action="{% url 'home' %}" method="post">
+  <form action="{% url 'home' %}" method="POST">
     {% csrf_token %}
       {{ form }}
     <input type="submit" value="Log My Thing">
