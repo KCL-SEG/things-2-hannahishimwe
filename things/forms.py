@@ -17,7 +17,7 @@ class ThingForm(forms.ModelForm):
     
     def clean(self):
         super().clean()
-        quantity = self.changed_data.get('quantity')
+        quantity = self.cleaned_data.get('quantity')
         if quantity > 100 | quantity < 0 :
             self.add_error('quanitity', 'Add valid input for quanitity')
 
